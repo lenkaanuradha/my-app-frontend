@@ -12,7 +12,7 @@ export default function Viewresults() {
       );
       if (response.data.success) {
         setallVotes(response.data.allvotes);
-        console.log(response.data.allvotes)
+       
         console.log("Votes fetched successfully:", response.data.allvotes);
       } else {
         console.error("Failed to fetch votes:", response.data);

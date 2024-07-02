@@ -9,6 +9,7 @@ export default function Register() {
     username: undefined,
     useremail: undefined,
     password: undefined,
+    profile_pic:undefined,
   });
 
   const navigate = useNavigate();
@@ -59,6 +60,15 @@ export default function Register() {
                   type="name"
                   className="grow  mx-2 p-3 border border-gray-300 test-bgray-700"
                   placeholder="Username"
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label className="mt-2 input input-bordered flex items-center gap-2">
+                <input
+                  id="profilePic"
+                  type="file"
+                  className="grow t mx-2 p-3 border border-gray-300 test-bgray-700"
                   onChange={handleChange}
                   required
                 />

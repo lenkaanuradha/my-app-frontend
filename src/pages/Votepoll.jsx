@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import io from "socket.io-client"
 import axios from 'axios';
 export default function Votepoll() {
     const [allRecords, setAllRecords] = useState([]);
-  
+    const ENDPOINT = process.env.REACT_APP_BACKEND_URL
+    var socket
     const handleOption = async (pollid,selected)=>{
      
       const reqbdy= {option:selected};
@@ -23,6 +25,9 @@ export default function Votepoll() {
     useEffect(()=>{
         fetchPoll();
     },[]);
+    useEffect(()=>{
+     socket = io(ENDPOINT)
+    })
     const fetchPoll = async () => {
         try {
           const response = await axios.get(
