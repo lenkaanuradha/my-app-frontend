@@ -29,7 +29,7 @@ export default function Login() {
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("user_id", response.data.userId);
-        navigate("/createpoll");
+        navigate("/userprofile");
       }
     } catch (error) {
       console.log("error", error.response.data.error);
