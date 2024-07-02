@@ -58,6 +58,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 ![Screenshot 2024-07-02 195010](https://github.com/lenkaanuradha/my-app-frontend/assets/136220914/4194a115-1129-4896-8da1-27e3ef439fcd)
 
 ![Screenshot 2024-07-02 195040](https://github.com/lenkaanuradha/my-app-frontend/assets/136220914/8df5477f-8348-40d8-9f3f-96733572a918)
+![Screenshot (46)](https://github.com/lenkaanuradha/my-app-frontend/assets/136220914/2a1c0e50-752e-41bd-8bc6-1661515c46b3)
 
 ![Screenshot 2024-07-02 195054](https://github.com/lenkaanuradha/my-app-frontend/assets/136220914/d7d946b3-451d-43c2-a942-3adab06f3098)
 
