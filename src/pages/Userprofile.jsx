@@ -5,7 +5,7 @@ export default function UserProfile() {
   const user_id = localStorage.getItem("user_id");
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [profilePic, setProfilePic] = useState('');
+  const [votes, setVotes] = useState('');
   const [polls, setPolls] = useState([]);
 
   const fetchUserInfos = async () => {
@@ -18,7 +18,7 @@ export default function UserProfile() {
         console.log(response.data.user)
         setName(response.data.user.username);
         setEmail(response.data.user.useremail);
-        setProfilePic(response.data.user.profile_pic); 
+        setVotes(response.data.voteCount); 
         setPolls(response.data.polls);
       }
     } catch (error) {
@@ -34,9 +34,7 @@ export default function UserProfile() {
     <div className="container mx-auto mt-5 p-5">
       <div className="bg-white shadow-md rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4 text-center">User Profile</h2>
-        <div className="mb-4 text-center">
-          {profilePic}
-        </div>
+        
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Name:</label>
           <p className="text-gray-900">{name}</p>
@@ -44,6 +42,10 @@ export default function UserProfile() {
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
           <p className="text-gray-900">{email}</p>
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 text-sm font-bold mb-2">Voted:</label>
+          <p className="text-gray-900">{votes}</p>
         </div>
         <div>
           <h3 className="text-xl font-bold mb-4 text-center">Polls Created</h3>
