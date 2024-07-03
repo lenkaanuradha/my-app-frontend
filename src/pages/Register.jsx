@@ -9,7 +9,7 @@ export default function Register() {
     username: "",
     useremail: "",
     password: "",
-    profilePic: "",
+   
   });
 
   const navigate = useNavigate();
@@ -75,15 +75,7 @@ export default function Register() {
                   required
                 />
               </label>
-              <label className="mt-2 input input-bordered flex items-center gap-2">
-                <input
-                  id="profilePic"
-                  type="file"
-                  className="grow t mx-2 p-3 border border-gray-300 test-bgray-700"
-                  onChange={handleChange}
-                  required
-                />
-              </label>
+             
               <label className="mt-2 input input-bordered flex items-center gap-2">
                 <input
                   id="password"
