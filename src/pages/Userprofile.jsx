@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Navbar from '../components/Navbar';
 export default function UserProfile() {
   const user_id = localStorage.getItem("user_id");
   const [name, setName] = useState('');
@@ -31,6 +31,9 @@ export default function UserProfile() {
   }, []);
 
   return (
+    <>
+   
+  <Navbar/>
     <div className="container mx-auto mt-5 p-5">
       <div className="bg-white shadow-md rounded-lg p-6">
         <h2 className="text-2xl font-bold mb-4 text-center">User Profile</h2>
@@ -44,7 +47,7 @@ export default function UserProfile() {
           <p className="text-gray-900">{email}</p>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">Voted:</label>
+          <label className="block text-gray-700 text-sm font-bold mb-2">Total Votes Casted:</label>
           <p className="text-gray-900">{votes}</p>
         </div>
         <div>
@@ -65,5 +68,6 @@ export default function UserProfile() {
         </div>
       </div>
     </div>
+    </>
   );
 }

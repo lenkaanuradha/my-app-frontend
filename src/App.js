@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Createpoll from "./pages/Createpoll";
 import Viewresults from "./pages/Viewresults";
 import Votepoll from "./pages/Votepoll";
-import Navbar from "./components/Navbar";
 
+import Navbar from "./components/Navbar";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Commentsec from "./pages/Commentsec";
@@ -12,7 +12,7 @@ import Userprofile from "./pages/Userprofile";
 export default function App() {
   return (
     <BrowserRouter>
-    <Navbar/>
+     
       <Routes>
       {/* <Route path="/discussions" element={<Commentsec/>} /> */}
       <Route path="/register" element={<Register/>} />
