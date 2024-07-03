@@ -58,7 +58,7 @@ export default function Votepoll() {
           
          </div>
          {item.options.map((selected,index)=>(
-                 <div className="mb-6 mt-2 mx-2 " key={index}>
+                 <div className="mb-6 mt-2 mx-1 p-2 bg-gray-200  hover:bg-blue-500" key={index}>
                  <label className=" text-gray-700 text-sm font-bold mb-2" onClick={()=>handleOption(item,selected)}>
                   {selected}
                  </label>

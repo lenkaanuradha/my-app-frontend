@@ -6,16 +6,27 @@ import axios from "axios";
 
 export default function Register() {
   const [credentials, setCredentials] = useState({
-    username: undefined,
-    useremail: undefined,
-    password: undefined,
-    profile_pic:undefined,
+    username: "",
+    useremail: "",
+    password: "",
+    profilePic: "",
   });
 
   const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  const handleChange = async (e) => {
+    const { id, value, files } = e.target;
+
+    if (id === "profilePic") {
+      const file = files[0];
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setCredentials((prev) => ({ ...prev, profilePic: reader.result }));
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setCredentials((prev) => ({ ...prev, [id]: value }));
+    }
   };
 
   const handleRegister = async (e) => {
@@ -43,7 +54,7 @@ export default function Register() {
             <h1 className="text-center text-3xl text-gray-300">
               Register <span className="text-blue-500">VotingApp</span>
             </h1>
-            <form action="" className="my-2">
+            <form className="my-2">
               <label className="mt-2 input input-bordered flex items-center gap-2">
                 <input
                   id="useremail"
@@ -57,7 +68,7 @@ export default function Register() {
               <label className="mt-2 input input-bordered flex items-center gap-2">
                 <input
                   id="username"
-                  type="name"
+                  type="text"
                   className="grow  mx-2 p-3 border border-gray-300 test-bgray-700"
                   placeholder="Username"
                   onChange={handleChange}
