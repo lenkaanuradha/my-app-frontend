@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import io from "socket.io-client"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import axios from 'axios';
 export default function Votepoll() {
     const [allRecords, setAllRecords] = useState([]);
-    const ENDPOINT = process.env.REACT_APP_BACKEND_URL
-    var socket
+   
     const handleOption = async (pollid,selected)=>{
      
       const reqbdy= {option:selected};
@@ -17,17 +18,17 @@ export default function Votepoll() {
           }/backend/vote/castvote/${pollid._id}/${userid}`,reqbdy);
         if(response.data.success){
           console.log("Your vote casted successfully!")
+          toast("Your vote casted successfully!")
         }
       } catch (error) {
+        toast("Error occured")
         console.log(error)
       }
     }
     useEffect(()=>{
         fetchPoll();
     },[]);
-    useEffect(()=>{
-     socket = io(ENDPOINT)
-    })
+   
     const fetchPoll = async () => {
         try {
           const response = await axios.get(
@@ -58,8 +59,8 @@ export default function Votepoll() {
           
          </div>
          {item.options.map((selected,index)=>(
-                 <div className="mb-6 mt-2 mx-1 p-2 bg-gray-200  hover:bg-blue-500" key={index}>
-                 <label className=" text-gray-700 text-sm font-bold mb-2" onClick={()=>handleOption(item,selected)}>
+                 <div className="mb-6 mt-2 mx-1 p-2 bg-gray-200  hover:bg-blue-500" key={index} onClick={()=>handleOption(item,selected)}>
+                 <label className=" text-gray-700 text-sm font-bold mb-2" >
                   {selected}
                  </label>
                 
@@ -70,6 +71,7 @@ export default function Votepoll() {
          
          </div>
           ))}
+          <ToastContainer/>
     </div>
   )
 }
