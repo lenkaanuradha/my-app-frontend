@@ -55,13 +55,13 @@ export default function Votepoll() {
        {allRecords.map((item, index) => (
         <div className="m-5  p-5 mb-2" key={index}>
            <div className="mb-4 items-center">
-           <label className=" text-gray-700 text-sm font-bold mb-2  p-3" >
+           <label className=" text-gray-700 text-sm font-bold mb-2 shadow-md p-3" >
              {item.question}
            </label>
           
          </div>
          {item.options.map((selected,index)=>(
-                 <div className="mb-6 mt-2 mx-1 p-3 bg-gray-200 rounded-md hover:bg-blue-400" key={index} onClick={()=>handleOption(item,selected)}>
+                 <div className="mb-6 mt-2 mx-1 p-2 bg-gray-200  hover:bg-blue-500" key={index} onClick={()=>handleOption(item,selected)}>
                  <label className=" text-gray-700 text-sm font-bold mb-2" >
                   {selected}
                  </label>
